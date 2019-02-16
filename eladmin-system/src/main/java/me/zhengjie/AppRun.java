@@ -20,7 +20,7 @@ public class AppRun {
         SpringApplication.run(AppRun.class, args);
     }
 
-//    @Bean
+    @Bean
     public SpringContextHolder springContextHolder() {
         return new SpringContextHolder();
     }
