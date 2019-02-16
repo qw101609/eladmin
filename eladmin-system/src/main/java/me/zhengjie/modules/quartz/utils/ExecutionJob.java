@@ -7,26 +7,23 @@ import me.zhengjie.modules.quartz.service.QuartzJobService;
 import me.zhengjie.utils.SpringContextHolder;
 import me.zhengjie.utils.ThrowableUtil;
 import org.quartz.JobExecutionContext;
-import org.quartz.Scheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.quartz.QuartzJobBean;
-import javax.annotation.Resource;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 /**
  * 参考人人开源，https://gitee.com/renrenio/renren-security
+ *
  * @author
  * @date 2019-01-07
  */
 @Async
 public class ExecutionJob extends QuartzJobBean {
-
-    @Resource(name = "scheduler")
-    private Scheduler scheduler;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
