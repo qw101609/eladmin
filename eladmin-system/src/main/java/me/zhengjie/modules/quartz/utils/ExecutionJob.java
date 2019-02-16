@@ -37,7 +37,6 @@ public class ExecutionJob extends QuartzJobBean {
         QuartzLogRepository quartzLogRepository = SpringContextHolder.getBean("quartzLogRepository");
         QuartzJobService quartzJobService = SpringContextHolder.getBean("quartzJobService");
         QuartzManage quartzManage = SpringContextHolder.getBean("quartzManage");
-
         QuartzLog log = new QuartzLog();
         log.setJobName(quartzJob.getJobName());
         log.setBeanName(quartzJob.getBeanName());
