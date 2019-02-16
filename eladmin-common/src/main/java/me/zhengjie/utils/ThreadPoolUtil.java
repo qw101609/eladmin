@@ -19,4 +19,6 @@ public class ThreadPoolUtil {
         ExecutorService executorService = new ThreadPoolExecutor(size,size,0L, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>(),namedThreadFactory);
         return executorService;
     }
+
+
 }
