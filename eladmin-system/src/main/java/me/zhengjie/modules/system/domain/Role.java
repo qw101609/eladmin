@@ -1,8 +1,7 @@
 package me.zhengjie.modules.system.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -13,13 +12,13 @@ import java.util.Set;
 
 /**
  * 角色
+ *
  * @author jie
  * @date 2018-11-22
  */
 @Entity
 @Table(name = "role")
-@Getter
-@Setter
+@Data
 public class Role implements Serializable {
 
     @Id
@@ -38,7 +37,7 @@ public class Role implements Serializable {
     private Set<User> users;
 
     @ManyToMany
-    @JoinTable(name = "roles_permissions", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")})
+    @JoinTable(name = "roles_permissions", joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id", referencedColumnName = "id")})
     private Set<Permission> permissions;
 
     @JsonIgnore
@@ -48,14 +47,4 @@ public class Role implements Serializable {
     @CreationTimestamp
     @Column(name = "create_time")
     private Timestamp createTime;
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", remark='" + remark + '\'' +
-                ", createDateTime=" + createTime +
-                '}';
-    }
 }

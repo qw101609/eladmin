@@ -1,8 +1,8 @@
 package me.zhengjie.modules.system.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
@@ -13,8 +13,7 @@ import java.util.Set;
  * @date 2018-12-17
  */
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "menu")
 public class Menu {
 
@@ -38,7 +37,7 @@ public class Menu {
     /**
      * 上级菜单ID
      */
-    @Column(name = "pid",nullable = false)
+    @Column(name = "pid", nullable = false)
     private Long pid;
 
     /**
@@ -48,7 +47,7 @@ public class Menu {
     private Boolean iFrame;
 
     @ManyToMany
-    @JoinTable(name = "menus_roles", joinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
+    @JoinTable(name = "menus_roles", joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private Set<Role> roles;
 
     @CreationTimestamp
